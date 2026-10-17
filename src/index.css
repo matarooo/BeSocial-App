@@ -1,0 +1,49 @@
+@import "tailwindcss";
+@import "@heroui/styles"; 
+
+:root {
+  color-scheme: light;
+  --accent: #ff5005;
+  --accent-soft: color-mix(in srgb, var(--accent) 12%, transparent);
+  --app-background: #f4f4f5;
+  --app-foreground: #18181b;
+}
+
+:root.dark {
+  color-scheme: dark;
+  --app-background: #09090b;
+  --app-foreground: #fafafa;
+}
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme inline {
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
+}
+
+@layer base {
+  html,
+  body,
+  #root {
+    min-height: 100vh;
+  }
+
+  body {
+    margin: 0;
+    background-color: var(--app-background);
+    color: var(--app-foreground);
+  }
+}
+
+@layer components {
+  .button--primary {
+    @apply bg-[#ff5005] text-white hover:bg-[#d13f00];
+  }
+  .input {
+    &:focus-visible,
+    &[data-focus-visible="true"] {
+      @apply border-accent ring-2 ring-accent;
+    }
+  }
+}
