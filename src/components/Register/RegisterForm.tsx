@@ -47,7 +47,7 @@ export default function RegisterForm() {
   return (
     <Form 
     onSubmit={handleSubmit(sendUserData)}
-    className="flex w-130 flex-col gap-4 rounded-3xl border border-zinc-900/15 bg-white/75 p-8 text-zinc-900 shadow-xl backdrop-blur-md dark:border-white/20 dark:bg-zinc-900/55 dark:text-white">
+    className="flex w-full max-w-lg flex-col gap-4 rounded-3xl border border-zinc-900/15 bg-white/75 p-5 text-zinc-900 shadow-xl backdrop-blur-md dark:border-white/20 dark:bg-zinc-900/55 dark:text-white sm:p-8">
           {/* FullName */}
           <TextField
             isRequired

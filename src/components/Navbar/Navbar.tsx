@@ -12,7 +12,7 @@ type NavbarProps = {
 }
 
 const navLinkClassName = ({ isActive }: { isActive: boolean }) =>
-  `flex items-center gap-2 rounded-3xl px-4 py-1 transition-colors ${
+  `flex items-center gap-1.5 rounded-3xl px-2.5 py-1.5 text-xs transition-colors sm:gap-2 sm:px-4 sm:py-1 sm:text-sm ${
     isActive
       ? 'bg-accent-soft font-semibold text-accent'
       : 'text-zinc-700 hover:bg-zinc-100 dark:text-zinc-300 dark:hover:bg-white/8'
@@ -27,25 +27,25 @@ export default function Navbar({ isDarkMode, onToggleTheme }: NavbarProps) {
     refetchInterval: 30_000,
   });
   return (
-    <div className='relative flex h-15 w-full max-w-7xl items-center justify-center'>
+    <div className='relative flex h-14 w-full max-w-7xl items-center justify-center sm:h-15'>
       <div className='absolute inset-0 rounded-full border border-zinc-900/15 bg-white/60 shadow-xl backdrop-blur-md dark:border-white/20 dark:bg-zinc-900/55'></div>
-      <div className='relative z-10 flex h-full w-full items-center justify-between px-4'>
-      <div className="logo flex items-center justify-center">
+      <div className='relative z-10 flex h-full w-full items-center justify-between gap-1 px-2 sm:gap-2 sm:px-4'>
+      <div className="logo flex shrink-0 items-center justify-center">
         <Comments className='size-7 text-accent'/>
-        <span className='pl-2 text-2xl font-bold text-zinc-900 dark:text-white'>BeSocial</span>
+        <span className='hidden pl-2 text-xl font-bold text-zinc-900 dark:text-white min-[380px]:inline sm:text-2xl'>BeSocial</span>
       </div>
-      <ul className='flex font-semibold'>
+      <ul className='flex min-w-0 font-semibold'>
         {userData && (
-          <div className='flex gap-6 border text-zinc-900 dark:text-white dark:border-white/15 dark:bg-zinc-900/70  py-1 px-1 rounded-full'>
-            <NavLink to={"/"} end className={navLinkClassName}>
+          <div className='flex gap-0.5 rounded-full border px-0.5 py-1 text-zinc-900 dark:border-white/15 dark:bg-zinc-900/70 dark:text-white sm:gap-2 sm:px-1'>
+            <NavLink to={"/"} end aria-label="Feed" title="Feed" className={navLinkClassName}>
             <House className='size-5'/>
-            Feed
+            <span className="hidden sm:inline">Feed</span>
             </NavLink>
-            <NavLink to={"/profile"} className={navLinkClassName}>
+            <NavLink to={"/profile"} aria-label="Profile" title="Profile" className={navLinkClassName}>
             <Person className='size-5'/>
-              Profile
+              <span className="hidden sm:inline">Profile</span>
             </NavLink>
-            <NavLink to={"/notifications"} className={navLinkClassName}>
+            <NavLink to={"/notifications"} aria-label="Notifications" title="Notifications" className={navLinkClassName}>
             <span className="relative inline-flex">
               <Bell className='size-5'/>
               {unreadCount > 0 && (
@@ -57,13 +57,13 @@ export default function Navbar({ isDarkMode, onToggleTheme }: NavbarProps) {
                 </span>
               )}
             </span>
-              Notifications
+              <span className="hidden sm:inline">Notifications</span>
             </NavLink>
         </div>
         )}
        
       </ul>
-      <div className='flex items-center gap-2'>
+      <div className='flex shrink-0 items-center gap-0.5 sm:gap-2'>
           <button
           type='button'
           onClick={onToggleTheme}
@@ -77,10 +77,10 @@ export default function Navbar({ isDarkMode, onToggleTheme }: NavbarProps) {
           <Avatar />
         ) : (
           <>
-            <Link to='/login' className='bg-[#ff5005] text-white px-6 py-1.5 font-bold rounded-full hover:bg-[#d13f00]'>
+            <Link to='/login' className='rounded-full bg-[#ff5005] px-3 py-1.5 text-xs font-bold text-white hover:bg-[#d13f00] sm:px-6 sm:text-sm'>
               Login
             </Link>
-            <Link to='/register' className='bg-[#ff5005] text-white px-6 py-1.5 font-bold rounded-full hover:bg-[#d13f00]'>
+            <Link to='/register' className='rounded-full bg-[#ff5005] px-3 py-1.5 text-xs font-bold text-white hover:bg-[#d13f00] sm:px-6 sm:text-sm'>
               Register
             </Link>
           </>

@@ -117,8 +117,8 @@ export default function Notifications() {
   );
 
   return (
-    <section className="max-w-7xl mx-auto mt-30 overflow-hidden rounded-4xl border border-zinc-900/10 bg-white/80 text-zinc-900 shadow-sm backdrop-blur-sm dark:border-white/15 dark:bg-zinc-900/70 dark:text-white">
-      <header className="flex flex-wrap items-start justify-between gap-4 border-b border-zinc-900/10 px-5 py-5 dark:border-white/10">
+    <section className="mx-2 mt-24 max-w-7xl overflow-hidden rounded-3xl border border-zinc-900/10 bg-white/80 text-zinc-900 shadow-sm backdrop-blur-sm dark:border-white/15 dark:bg-zinc-900/70 dark:text-white sm:mx-auto sm:mt-30 sm:rounded-4xl">
+      <header className="flex flex-wrap items-start justify-between gap-4 border-b border-zinc-900/10 px-4 py-4 dark:border-white/10 sm:px-5 sm:py-5">
         <div>
           <h1 className="text-xl font-bold">Notifications</h1>
           <p className="mt-1 text-sm text-zinc-500 dark:text-zinc-400">
@@ -154,7 +154,7 @@ export default function Notifications() {
         </button>
       </header>
 
-      <div className="space-y-3 p-4">
+      <div className="space-y-3 p-2 sm:p-4">
         {unreadCountError && (
           <p role="alert" className="text-sm text-amber-700 dark:text-amber-400">
             Could not load the unread notification count.
@@ -176,7 +176,7 @@ export default function Notifications() {
           return (
             <article
               key={notification._id}
-              className={`flex items-start gap-4 rounded-2xl border p-4 transition-colors ${
+              className={`flex items-start gap-3 rounded-2xl border p-3 transition-colors sm:gap-4 sm:p-4 ${
                 hasBeenRead
                   ? "border-zinc-900/10 bg-white/70 dark:border-white/10 dark:bg-zinc-900/40"
                   : "border-accent/30 bg-accent-soft dark:border-accent/40 dark:bg-accent/10"

@@ -56,18 +56,18 @@ export default function Profile() {
      }
 
   return ( 
-    <div className="mx-auto mt-24 w-full max-w-7xl rounded-3xl border border-zinc-900/10 bg-white/80 p-6 text-zinc-900 shadow-sm dark:border-white/15 dark:bg-zinc-900/70 dark:text-white">
+    <div className="mx-auto mt-20 w-[calc(100%_-_1rem)] max-w-7xl rounded-3xl border border-zinc-900/10 bg-white/80 p-4 text-zinc-900 shadow-sm dark:border-white/15 dark:bg-zinc-900/70 dark:text-white sm:mt-24 sm:w-full sm:p-6">
       <div>
       {userData?.cover && (
         <img
           src={userData.cover}
           alt=""
-          className="mb-5 h-48 w-full rounded-2xl object-cover"
+          className="mb-5 h-32 w-full rounded-2xl object-cover sm:h-48"
         />
       )}
       {userData && (
         <>
-        <div className="flex items-center gap-4">
+        <div className="flex min-w-0 items-center gap-3 sm:gap-4">
           <div className="group relative size-24 shrink-0">
             <div className="flex size-full items-center justify-center overflow-hidden rounded-full border-2 border-white bg-zinc-200 text-zinc-700 shadow-sm ring-1 ring-zinc-900/10 dark:border-zinc-800 dark:bg-zinc-800 dark:text-white dark:ring-white/15">
               {userData.photo ? (
@@ -107,10 +107,10 @@ export default function Profile() {
               <Camera aria-hidden="true" className="size-4" />
             </button>
           </div>
-          <div>
-            <h1 className="text-2xl font-bold">{userData.name}</h1>
-            <p className="mt-1 text-sm text-zinc-600 dark:text-zinc-400">@{userData.username}</p>
-            <p className="mt-1 text-sm text-zinc-600 dark:text-zinc-400">{userData.email}</p>
+          <div className="min-w-0">
+            <h1 className="break-words text-xl font-bold sm:text-2xl">{userData.name}</h1>
+            <p className="mt-1 break-all text-sm text-zinc-600 dark:text-zinc-400">@{userData.username}</p>
+            <p className="mt-1 break-all text-sm text-zinc-600 dark:text-zinc-400">{userData.email}</p>
           </div>
         </div>
         {isPhotoPreviewOpen && userData.photo && createPortal(
@@ -148,7 +148,7 @@ export default function Profile() {
         )}
         </>
       )}
-      <div className="mt-5 flex gap-3 text-sm">
+      <div className="mt-5 flex flex-wrap gap-2 text-sm">
         <span className="rounded-full bg-zinc-100 px-3 py-1 dark:bg-zinc-800">
           {userData?.followersCount ?? 0} followers
         </span>

@@ -139,7 +139,7 @@ export default function PostCard({ post }: { post: Post }) {
     {isShareOpen && userData && !isOwnPost && (
       <SharePost post={post} onClose={() => setIsShareOpen(false)} />
     )}
-    <div className="w-full flex-col gap-6 border border-zinc-900/10 bg-white/80 text-zinc-900 shadow-sm backdrop-blur-sm dark:border-white/15 dark:bg-zinc-900/70 dark:text-white p-5 rounded-3xl mb-5">
+    <div className="w-full min-w-0 flex-col gap-6 rounded-3xl border border-zinc-900/10 bg-white/80 p-3 text-zinc-900 shadow-sm backdrop-blur-sm dark:border-white/15 dark:bg-zinc-900/70 dark:text-white sm:mb-5 sm:p-5">
             <div className="flex justify-between items-center">
                 <div className="flex gap-2">
                     <div className="flex size-10 cursor-pointer items-center justify-center overflow-hidden rounded-full border-2 border-white/70 bg-zinc-200 text-sm font-semibold text-zinc-700 shadow-sm transition hover:ring-2 hover:ring-[#ff5005] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#ff5005] dark:border-zinc-700 dark:bg-zinc-800 dark:text-white">
@@ -176,7 +176,7 @@ export default function PostCard({ post }: { post: Post }) {
             { sharedPost ? <div className="mt-4 bg-zinc-100/80 dark:bg-zinc-800/60 rounded-2xl border border-accent/40 dark:border-accent/70">
                  <SharedPost sharedPost={sharedPost}/>
             </div> : ''}
-            <div className="px-4 pb-2 pt-3 text-sm text-zinc-600 dark:text-slate-300 flex justify-between items-center">
+            <div className="flex flex-wrap items-start justify-between gap-2 px-1 pb-2 pt-3 text-xs text-zinc-600 dark:text-slate-300 sm:items-center sm:px-4 sm:text-sm">
                 <div className="flex items-center gap-2">
                     <div className="bg-accent rounded-full w-6 h-6 flex justify-center items-center">
                         <ThumbsUp/>
@@ -188,8 +188,8 @@ export default function PostCard({ post }: { post: Post }) {
                         {likesTotal} Likes
                     </Link>
                 </div>
-                <div className="flex items-center gap-4">
-                    <div className="flex items-center gap-2">
+                <div className="flex flex-wrap items-center justify-start gap-x-3 gap-y-1 sm:justify-end sm:gap-4">
+                    <div className="flex items-center gap-1.5 sm:gap-2">
                         <ArrowsRotateRight/>
                         <span>{sharesCount} Shares</span>
                     </div>

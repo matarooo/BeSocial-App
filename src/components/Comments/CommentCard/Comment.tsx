@@ -38,7 +38,7 @@ export default function Comments({ postId }: { postId: string }) {
     }, [allComments, sortBy]);
   return (
     <div className="mt-3 p-1 bg-zinc-100 dark:bg-zinc-800 rounded-2xl">
-        <div className="flex justify-between m-5 p-5 bg-white/80 dark:bg-zinc-950/70 rounded-4xl">
+        <div className="m-2 flex flex-wrap justify-between gap-3 rounded-3xl bg-white/80 p-3 dark:bg-zinc-950/70 sm:m-5 sm:rounded-4xl sm:p-5">
             <div className="flex gap-3 items-center">
                 <p className="font-bold text-xs">Comments</p>
                 <div className="bg-zinc-200 dark:bg-zinc-800 rounded-full w-5 h-5 flex items-center justify-center">

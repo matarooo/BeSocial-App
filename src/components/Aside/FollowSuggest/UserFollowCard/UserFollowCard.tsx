@@ -37,7 +37,7 @@ export default function UserFollowCard({suggestion}:{suggestion:SuggestionList})
             <Link
                 to={`/profile/${suggestion._id}`}
                 state={{ profile: suggestion }}
-                className="flex gap-2 w-full"
+                className="flex min-w-0 flex-1 gap-2"
             >
                 <div className="flex size-10 cursor-pointer items-center justify-center overflow-hidden rounded-full border-2 border-white/70 bg-zinc-200 text-sm font-semibold text-zinc-700 shadow-sm transition hover:ring-2 hover:ring-[#ff5005] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#ff5005] dark:border-zinc-700 dark:bg-zinc-800 dark:text-white">
                     {photo ? (
@@ -46,9 +46,9 @@ export default function UserFollowCard({suggestion}:{suggestion:SuggestionList})
                         <Person aria-hidden='true' className='size-5' />
                     )}
                 </div>
-                <div className="flex flex-col">
-                    <span className="font-bold text-xs">{name}</span>
-                    <span className="text-zinc-600 dark:text-zinc-400 text-xs">@{username}</span>
+                <div className="flex min-w-0 flex-col">
+                    <span className="truncate font-bold text-xs">{name}</span>
+                    <span className="truncate text-xs text-zinc-600 dark:text-zinc-400">@{username}</span>
                 </div>
             </Link>
                 <button
@@ -60,7 +60,7 @@ export default function UserFollowCard({suggestion}:{suggestion:SuggestionList})
                     }}
                     disabled={followMutation.isPending}
                     aria-label={isFollowing ? `Following ${name}` : `Follow ${name}`}
-                    className={`flex items-center gap-1 text-[10px] text-white px-3 py-1 font-bold rounded-full disabled:cursor-default cursor-pointer ${
+                    className={`flex shrink-0 items-center gap-1 rounded-full px-3 py-1 text-[10px] font-bold text-white disabled:cursor-default ${
                         isFollowing
                             ? "bg-green-600 hover:bg-green-700"
                             : "bg-[#ff5005] hover:bg-[#d13f00]"
@@ -70,7 +70,7 @@ export default function UserFollowCard({suggestion}:{suggestion:SuggestionList})
                     {followMutation.isPending ? "..." : isFollowing ? "Following" : "Follow"}
                 </button>
         </div>
-        <div className="flex gap-3">
+        <div className="flex flex-wrap gap-2">
         {followersCount !== undefined && (
             <span className="bg-zinc-200 dark:bg-zinc-700 rounded-full px-3 py-1 text-[11px] text-zinc-700 dark:text-zinc-200">
                 {followersCount} Followers

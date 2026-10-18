@@ -34,7 +34,7 @@ export default function Suggestions() {
   const canRenderSuggestions = isSearchSettled && isSuccess && !isFetching;
 
   return (
-    <div className="max-w-5xl mt-20 mx-auto flex-col gap-6 border border-zinc-900/10 bg-white/80 text-zinc-900 shadow-sm backdrop-blur-sm dark:border-white/15 dark:bg-zinc-900/70 dark:text-white p-5 rounded-4xl">
+    <div className="mx-auto mt-24 w-[calc(100%_-_1rem)] max-w-5xl rounded-3xl border border-zinc-900/10 bg-white/80 p-4 text-zinc-900 shadow-sm backdrop-blur-sm dark:border-white/15 dark:bg-zinc-900/70 dark:text-white sm:mt-28 sm:w-full sm:rounded-4xl sm:p-5">
       <Link
         to="/"
         className="mb-5 inline-flex items-center gap-2 rounded-full border border-zinc-900/10 bg-white/80 px-4 py-2 text-sm font-semibold text-zinc-700 shadow-sm transition-colors hover:border-accent/40 hover:bg-accent-soft hover:text-accent focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent dark:border-white/15 dark:bg-zinc-800/70 dark:text-zinc-200 dark:hover:border-accent/50 dark:hover:text-accent"
@@ -68,7 +68,7 @@ export default function Suggestions() {
     {(!isSearchSettled || isFetching) && (
       <p role="status" className="mb-3 text-xs text-zinc-500">Searching suggestions...</p>
     )}
-    <div className="grid grid-cols-2 gap-3">
+    <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
     {canRenderSuggestions && followSuggestion.map(suggestion => (
       <UserFollowCard key={suggestion._id} suggestion={suggestion}/>
     ))}
